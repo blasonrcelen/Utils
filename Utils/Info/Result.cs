@@ -101,6 +101,14 @@ namespace Utils.Info
         {
             return ErrorMessages.ToString(_showCodes);
         }
+    
+        // Merge Result
+        public void Merge(Result _result)
+        {
+            AddError(_result.ErrorMessages);
+            AddWarning(_result.WarningMessages);
+            AddSuccess(_result.SuccessMessages);
+        }
     }
 
     public class Result<T> : Result
