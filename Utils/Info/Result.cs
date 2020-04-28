@@ -5,9 +5,15 @@ namespace Utils.Info
 {
     public class Result
     {
-        public MessageList SuccessMessages { get; set; }
-        public MessageList WarningMessages { get; set; }
-        public MessageList ErrorMessages { get; set; }
+        public MessageList SuccessMessages { get; set; } = new MessageList();
+        public MessageList WarningMessages { get; set; } = new MessageList();
+        public MessageList ErrorMessages { get; set; } = new MessageList();
+
+        public Result() { }
+        public Result(params Result[] results)
+        {
+            foreach (Result result in results) Merge(result);
+        }
 
         // SUCCESS LIST
         public void AddSuccess(String _message, byte _code = 0x00)
@@ -22,7 +28,7 @@ namespace Utils.Info
 
         public void AddSuccess(MessageList _message)
         {
-            SuccessMessages.AddRange(_message);
+            if (_message != null && _message.Count > 0) SuccessMessages.AddRange(_message);
         }
 
         public long CountSuccesses()
@@ -53,7 +59,7 @@ namespace Utils.Info
 
         public void AddWarning(MessageList _message)
         {
-            WarningMessages.AddRange(_message);
+            if (_message != null && _message.Count > 0) WarningMessages.AddRange(_message);
         }
 
         public long CountWarnings()
@@ -84,7 +90,7 @@ namespace Utils.Info
 
         public void AddError(MessageList _message)
         {
-            ErrorMessages.AddRange(_message);
+            if (_message != null && _message.Count > 0) ErrorMessages.AddRange(_message);
         }
 
         public long CountErrors()
@@ -105,14 +111,20 @@ namespace Utils.Info
         // Merge Result
         public void Merge(Result _result)
         {
-            AddError(_result.ErrorMessages);
-            AddWarning(_result.WarningMessages);
-            AddSuccess(_result.SuccessMessages);
+            if (_result != null)
+            {
+                AddError(_result.ErrorMessages);
+                AddWarning(_result.WarningMessages);
+                AddSuccess(_result.SuccessMessages);
+            }
         }
     }
 
     public class Result<T> : Result
     {
         public T ResultObject;
+
+        public Result() : base() { }
+        public Result(params Result[] _results) : base(_results) { }
     }
 }

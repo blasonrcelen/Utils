@@ -41,7 +41,7 @@ namespace Utils.Info
 
         public void Add(String _message, byte _code = 0x00)
         {
-            Add(new Message(_message, _code));
+            if (_message != null) Add(new Message(_message, _code));
         }
 
         public void Add(String _message, String _prefix, byte _code = 0x00)
@@ -54,7 +54,7 @@ namespace Utils.Info
 
         public void AddRange(List<String> _messages, byte _code = 0x00)
         {
-            if (_messages == null) return;
+            if (_messages == null && _messages.Count == 0) return;
 
             foreach (string message in _messages)
                 if (message != null) Add(new Message(message, _code));
@@ -62,7 +62,7 @@ namespace Utils.Info
 
         public void AddRange(List<String> _messages, String _prefix, byte _code = 0x00)
         {
-            if (_messages == null) return;
+            if (_messages == null && _messages.Count == 0) return;
             if (_prefix == null) _prefix = "";
 
             foreach (string message in _messages)
@@ -71,7 +71,7 @@ namespace Utils.Info
 
         public void AddRange(List<Message> _messages, String _prefix)
         {
-            if (_messages == null) return;
+            if (_messages == null && _messages.Count == 0) return;
             if (_prefix == null) _prefix = "";
 
             foreach (Message msg in _messages)
@@ -86,7 +86,7 @@ namespace Utils.Info
 
         public void AddRange(MessageList _messages)
         {
-            if (_messages == null) return;
+            if (_messages == null && _messages.Count == 0) return;
             AddRange(_messages);
         }
 
