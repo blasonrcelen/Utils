@@ -5,118 +5,78 @@ namespace Utils.Info
 {
     public class Result
     {
-        public MessageList SuccessMessages { get; set; } = new MessageList();
-        public MessageList WarningMessages { get; set; } = new MessageList();
-        public MessageList ErrorMessages { get; set; } = new MessageList();
+        public MessageList Successes { get; set; } = new MessageList();
+        public MessageList Warnings { get; set; } = new MessageList();
+        public MessageList Errors { get; set; } = new MessageList();
 
         public Result() { }
-        public Result(params Result[] results)
+        public Result(params Result[] _results)
         {
-            foreach (Result result in results) Merge(result);
+            foreach (Result result in _results) Merge(result);
         }
 
-        // SUCCESS LIST
-        public void AddSuccess(String _message, byte _code = 0x00)
+        public Result Merge(Result _result)
         {
-            SuccessMessages.Add(_message, _code);
+            if (_result != null)
+            {
+                Successes.AddRange(_result.Successes);
+                Warnings.AddRange(_result.Warnings);
+                Errors.AddRange(_result.Errors);
+            } return this;
         }
 
-        public void AddSuccess(List<String> _messages, byte _code = 0x00)
+        // ERRORS
+        public Result AddError(String _error)
         {
-            SuccessMessages.AddRange(_messages, _code);
+            Errors.Add(_error);
+            return this;
         }
 
-        public void AddSuccess(MessageList _message)
+        public Result AddErrors(List<String> _errors)
         {
-            if (_message != null && _message.Count > 0) SuccessMessages.AddRange(_message);
-        }
-
-        public long CountSuccesses()
-        {
-            return SuccessMessages != null ? SuccessMessages.Count : 0;
-        }
-
-        public bool HasSuccesses()
-        {
-            return CountSuccesses() > 0;
-        }
-
-        public String SuccessesToString(bool _showCodes = false)
-        {
-            return SuccessMessages.ToString(_showCodes);
-        }
-
-        // WARNING LIST
-        public void AddWarning(String _message, byte _code = 0x00)
-        {
-            WarningMessages.Add(_message, _code);
-        }
-
-        public void AddWarning(List<String> _messages, byte _code = 0x00)
-        {
-            WarningMessages.AddRange(_messages, _code);
-        }
-
-        public void AddWarning(MessageList _message)
-        {
-            if (_message != null && _message.Count > 0) WarningMessages.AddRange(_message);
-        }
-
-        public long CountWarnings()
-        {
-            return WarningMessages != null ? WarningMessages.Count : 0;
-        }
-
-        public bool HasWarnings()
-        {
-            return CountWarnings() > 0;
-        }
-
-        public String WarningsToString(bool _showCodes = false)
-        {
-            return WarningMessages.ToString(_showCodes);
-        }
-
-        // ERRORS LIST
-        public void AddError(String _message, byte _code = 0x00)
-        {
-            ErrorMessages.Add(_message, _code);
-        }
-
-        public void AddError(List<String> _messages, byte _code = 0x00)
-        {
-            ErrorMessages.AddRange(_messages, _code);
-        }
-
-        public void AddError(MessageList _message)
-        {
-            if (_message != null && _message.Count > 0) ErrorMessages.AddRange(_message);
-        }
-
-        public long CountErrors()
-        {
-            return ErrorMessages != null ? ErrorMessages.Count : 0;
+            Errors.AddRange(_errors);
+            return this;
         }
 
         public bool HasErrors()
         {
-            return CountErrors() > 0;
+            return !Errors.IsEmpty();
         }
 
-        public String ErrorsToString(bool _showCodes = false)
+        // WARNINGS
+        public Result AddWarning(String _warning)
         {
-            return ErrorMessages.ToString(_showCodes);
+            Warnings.Add(_warning);
+            return this;
         }
-    
-        // Merge Result
-        public void Merge(Result _result)
+
+        public Result AddWarnings(List<String> _warnings)
         {
-            if (_result != null)
-            {
-                AddError(_result.ErrorMessages);
-                AddWarning(_result.WarningMessages);
-                AddSuccess(_result.SuccessMessages);
-            }
+            Warnings.AddRange(_warnings);
+            return this;
+        }
+
+        public bool HasWarnings()
+        {
+            return !Warnings.IsEmpty();
+        }
+
+        // ERRORS
+        public Result AddSuccess(String _success)
+        {
+            Successes.Add(_success);
+            return this;
+        }
+
+        public Result AddSuccesses(List<String> _successes)
+        {
+            Successes.AddRange(_successes);
+            return this;
+        }
+
+        public bool HasSuccesses()
+        {
+            return !Successes.IsEmpty();
         }
     }
 
