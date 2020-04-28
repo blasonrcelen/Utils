@@ -85,7 +85,15 @@ namespace Utils.Info
         public T ResultObject;
 
         public Result() : base() { }
-        public Result(params Result[] _results) : base(_results) { }
+        public Result(T _resultObject) : base()
+        {
+            ResultObject = _resultObject;
+        }
+
+        public Result(T _resultObject, params Result[] _results) : base(_results) 
+        {
+            ResultObject = _resultObject;
+        }
 
         public new Result<T> Merge(Result _result)
         {
