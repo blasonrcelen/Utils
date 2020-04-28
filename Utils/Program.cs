@@ -13,8 +13,6 @@ namespace Utils
             Console.WriteLine("Begin Test (" + initDate + ")");
             // ==================================================
 
-            Result<bool> result = (Result<bool>)new Result<bool>().AddError("ok");
-
             // ==================================================
             Console.WriteLine("Finishe Test (" + (DateTime.Now - initDate) + ")");
         }

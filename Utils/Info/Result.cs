@@ -86,5 +86,44 @@ namespace Utils.Info
 
         public Result() : base() { }
         public Result(params Result[] _results) : base(_results) { }
+
+        public new Result<T> Merge(Result _result)
+        {
+            return (Result<T>) base.Merge(_result);
+        }
+
+        // ERRORS
+        public new Result<T> AddError(String _error)
+        {
+            return (Result<T>) base.AddError(_error);
+        }
+
+        public new Result<T> AddErrors(List<String> _errors)
+        {
+            return (Result<T>) base.AddErrors(_errors);
+        }
+
+        // WARNINGS
+        public new Result<T> AddWarning(String _warning)
+        {
+            return (Result<T>) base.AddWarning(_warning);
+        }
+
+        public new Result<T> AddWarnings(List<String> _warnings)
+        {
+            return (Result<T>) base.AddWarnings(_warnings);
+        }
+
+        // ERRORS
+        public new Result<T> AddSuccess(String _success)
+        {
+            return (Result<T>) base.AddSuccess(_success);
+        }
+
+        public new Result<T> AddSuccesses(List<String> _successes)
+        {
+            return (Result<T>) base.AddSuccesses(_successes);
+        }
+
     }
 }
