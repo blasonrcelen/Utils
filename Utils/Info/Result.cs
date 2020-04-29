@@ -123,7 +123,7 @@ namespace Utils.Info
             return (Result<T>)base.AddWarnings(_warnings);
         }
 
-        // ERRORS
+        // SUCCESSES
         public new Result<T> AddSuccess(String _success)
         {
             return (Result<T>)base.AddSuccess(_success);
