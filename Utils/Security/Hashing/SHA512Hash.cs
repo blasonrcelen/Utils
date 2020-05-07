@@ -4,8 +4,7 @@ namespace Utils.Security.Hashing
 {
     public class SHA512Hash : Hashing
     {
-        public SHA512Hash(byte[] _hashSalt) : base(_hashSalt) { }
-        public SHA512Hash(byte[] _data, uint _iterations, byte[] _salt = null) : base(_data, _iterations, _salt) { }
+        public SHA512Hash(byte[] data, uint iterations, byte[] salt = null) : base(data, iterations, salt) { }
 
         protected override byte[] ComputeHash()
         {

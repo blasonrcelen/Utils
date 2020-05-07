@@ -8,15 +8,7 @@
         public abstract byte[] Key { get; set; }
         public abstract byte[] IV { get; set; }
 
-        public abstract byte[] Encrypt(byte[] _data);
-        public abstract byte[] Decrypt(byte[] _data);
-
-        public byte[] GetKeyIv()
-        {
-            byte[] keyIV = new byte[Key.Length + IV.Length];
-            Key.CopyTo(keyIV, 0);
-            IV.CopyTo(keyIV, Key.Length);
-            return keyIV;
-        }
+        public abstract byte[] Encrypt(byte[] data);
+        public abstract byte[] Decrypt(byte[] data);
     }
 }

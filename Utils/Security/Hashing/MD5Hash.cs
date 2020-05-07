@@ -4,8 +4,7 @@ namespace Utils.Security.Hashing
 {
     public class MD5Hash : Hashing
     {
-        public MD5Hash(byte[] _hashSalt) : base(_hashSalt) { }
-        public MD5Hash(byte[] _data, uint _iterations, byte[] _salt = null) : base(_data, _iterations, _salt) { }
+        public MD5Hash(byte[] data, uint iterations, byte[] salt = null) : base(data, iterations, salt) { }
 
         protected override byte[] ComputeHash()
         {

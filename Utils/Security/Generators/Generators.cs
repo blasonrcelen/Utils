@@ -6,41 +6,41 @@ namespace Utils.Security.Generators
 {
     public class Generator
     {
-        public static String GetRandomText(int _length, String _allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-?!#=<>&$@%")
+        public static String GetRandomText(int length, String allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-?!#=<>&$@%")
         {
-            if (_length < 0) throw new ArgumentOutOfRangeException("_length", "length cannot be less than zero.");
+            if (length < 0) throw new ArgumentOutOfRangeException("length", "length cannot be less than zero.");
 
-            if (String.IsNullOrWhiteSpace(_allowedChars)) throw new ArgumentException("_allowedChars may not be empty.");
+            if (String.IsNullOrWhiteSpace(allowedChars)) throw new ArgumentException("allowedChars may not be empty.");
 
-            if (_allowedChars.Length > 256) throw new ArgumentException("_allowedChars may contain no more than 256 characters.");
+            if (allowedChars.Length > 256) throw new ArgumentException("allowedChars may contain no more than 256 characters.");
 
             StringBuilder result = new StringBuilder();
-            while (result.Length < _length)
+            while (result.Length < length)
             {
                 byte[] buf = GetRandomBytes(128);
-                for (int i = 0; i < buf.Length && result.Length < _length; ++i)
+                for (int i = 0; i < buf.Length && result.Length < length; ++i)
                 {
-                    int outOfRangeStart = 256 - (256 % _allowedChars.Length);
+                    int outOfRangeStart = 256 - (256 % allowedChars.Length);
                     if (outOfRangeStart <= buf[i]) continue;
 
-                    result.Append(_allowedChars[buf[i] % _allowedChars.Length]);
+                    result.Append(allowedChars[buf[i] % allowedChars.Length]);
                 }
             }
 
             return result.ToString();
         }
 
-        public static byte[] GetRandomBytes(int _length)
+        public static byte[] GetRandomBytes(int length)
         {
-            byte[] randomData = new byte[_length];
+            byte[] randomData = new byte[length];
             new RNGCryptoServiceProvider().GetBytes(randomData);
             return randomData;
         }
 
-        public static byte[] GetDerivationKey(String _key, int _length, int _iterations = 100)
+        public static byte[] GetDerivationKey(String key, int length, int iterations = 100)
         {
-            Rfc2898DeriveBytes rfc2898 = new Rfc2898DeriveBytes(_key, GetRandomBytes(500));
-            return rfc2898.GetBytes(_length);
+            Rfc2898DeriveBytes rfc2898 = new Rfc2898DeriveBytes(key, GetRandomBytes(500));
+            return rfc2898.GetBytes(length);
         }
     }
 }

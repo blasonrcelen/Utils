@@ -9,65 +9,65 @@ namespace Utils.Info
     {
         public readonly String FilePath;
 
-        public LogFile(String _filePath, String _initMessage = null, bool _showDateTime = false)
+        public LogFile(String filePath, String initMessage = null, bool showDateTime = false)
         {
-            FilePath = _filePath;
+            FilePath = filePath;
             if (!File.Exists(FilePath)) new FileStream(FilePath, FileMode.Create).Close();
-            if (_initMessage != null) WriteLine(_initMessage, _showDateTime);
+            if (initMessage != null) WriteLine(initMessage, showDateTime);
         }
 
-        public void WriteError(String _error, bool _showDateTime = false)
+        public void WriteError(String error, bool showDateTime = false)
         {
-            WriteLine($"[Error]: {_error}", _showDateTime);
+            WriteLine($"[Error]: {error}", showDateTime);
         }
 
-        public void WriteErrors(List<String> _errors, bool _showDateTime = false)
+        public void WriteErrors(List<String> errors, bool showDateTime = false)
         {
             List<String> errors = new List<string>();
             errors.Add("====== ERRORS ======");
-            errors.AddRange(_errors);
+            errors.AddRange(errors);
             errors.Add("====================");
-            WriteLines(errors, _showDateTime);
+            WriteLines(errors, showDateTime);
         }
 
-        public void WriteWarning(String _warning, bool _showDateTime = false)
+        public void WriteWarning(String warning, bool showDateTime = false)
         {
-            WriteLine($"[Warning]: {_warning}", _showDateTime);
+            WriteLine($"[Warning]: {warning}", showDateTime);
         }
 
-        public void WriteWarnings(List<String> _warnings, bool _showDateTime = false)
+        public void WriteWarnings(List<String> warnings, bool showDateTime = false)
         {
             List<String> warnings = new List<string>();
-            warnings.Add("====== ERRORS ======");
-            warnings.AddRange(_warnings);
+            warnings.Add("====== Warnings ======");
+            warnings.AddRange(warnings);
             warnings.Add("====================");
-            WriteLines(warnings, _showDateTime);
+            WriteLines(warnings, showDateTime);
         }
 
-        public void WriteLine(String _line, bool _showDateTime = false)
+        public void WriteLine(String line, bool showDateTime = false)
         {
-            if (_line == null) return;
+            if (line == null) return;
 
-            byte[] bytesToWrite = Encoding.ASCII.GetBytes((_showDateTime ? $"[{DateTime.Now}]: {_line}" : _line) + "\n");
+            byte[] bytesToWrite = Encoding.ASCII.GetBytes((showDateTime ? $"[{DateTime.Now}]: {line}" : line) + "\n");
 
             FileStream file = new FileStream(FilePath, FileMode.Append);
             file.Write(bytesToWrite, 0, bytesToWrite.Length);
             file.Close();
         }
 
-        public void WriteLines(List<String> _lines, bool _showDateTime = false)
+        public void WriteLines(List<String> lines, bool showDateTime = false)
         {
-            if (_lines == null) return;
+            if (lines == null) return;
 
             FileStream file = new FileStream(FilePath, FileMode.Append);
 
-            if (_showDateTime)
+            if (showDateTime)
             {
                 byte[] dateTime = Encoding.ASCII.GetBytes($"[{DateTime.Now}]:\n");
                 file.Write(dateTime, 0, dateTime.Length);
             }
 
-            foreach (String line in _lines)
+            foreach (String line in lines)
             {
                 if (line == null) continue;
 

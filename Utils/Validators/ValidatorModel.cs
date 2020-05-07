@@ -4,7 +4,7 @@ namespace Utils.Validators
 {
     public interface IValidator
     {
-        bool IsValid(object _value);
+        bool IsValid(object value);
     }
 
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
@@ -15,22 +15,22 @@ namespace Utils.Validators
 
         public ValidatorModel() { }
 
-        public ValidatorModel(bool _ignoreEmpty)
+        public ValidatorModel(bool ignoreEmpty)
         {
-            IgnoreEmpty = _ignoreEmpty;
+            IgnoreEmpty = ignoreEmpty;
         }
 
-        public ValidatorModel(String _error)
+        public ValidatorModel(String error)
         {
-            Error = _error;
+            Error = error;
         }
 
-        public ValidatorModel(bool _ignoreEmpty, String _error)
+        public ValidatorModel(bool ignoreEmpty, String error)
         {
-            IgnoreEmpty = _ignoreEmpty;
-            Error = _error;
+            IgnoreEmpty = ignoreEmpty;
+            Error = error;
         }
 
-        public abstract bool IsValid(object _value);
+        public abstract bool IsValid(object value);
     }
 }

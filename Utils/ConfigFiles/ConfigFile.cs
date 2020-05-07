@@ -8,26 +8,26 @@ namespace Utils.ConfigFiles
         public String FilePath { get; set; }
 
         public ConfigFile() { }
-        public ConfigFile(String _filePath)
+        public ConfigFile(String filePath)
         {
-            FilePath = _filePath;
+            FilePath = filePath;
             if (!File.Exists(FilePath)) LoadSaveDefault();
             else Load();
         }
 
-        public abstract void LoadSaveDefault(String _filePath);
+        public abstract void LoadSaveDefault(String filePath);
         public void LoadSaveDefault()
         {
             LoadSaveDefault(FilePath);
         }
 
-        public abstract void Load(String _filePath);
+        public abstract void Load(String filePath);
         public void Load()
         {
             Load(FilePath);
         }
 
-        public abstract void Save(String _filePath);
+        public abstract void Save(String filePath);
         public void Save()
         {
             Save(FilePath);

@@ -6,14 +6,14 @@ namespace Utils.Info
     public class MessageList : List<String>
     {
         public MessageList() { }
-        public MessageList(params String[] _messages)
+        public MessageList(params String[] messages)
         {
-            AddRange(_messages);
+            AddRange(messages);
         }
 
-        public MessageList(List<String> _messages)
+        public MessageList(List<String> messages)
         {
-            AddRange(_messages);
+            AddRange(messages);
         }
 
         public bool IsEmpty()

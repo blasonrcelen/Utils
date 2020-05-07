@@ -4,8 +4,7 @@ namespace Utils.Security.Hashing
 {
     public class SHA1Hash : Hashing
     {
-        public SHA1Hash(byte[] _hashSalt) : base(_hashSalt) { }
-        public SHA1Hash(byte[] _data, uint _iterations, byte[] _salt = null) : base(_data, _iterations, _salt) { }
+        public SHA1Hash(byte[] data, uint iterations, byte[] salt = null) : base(data, iterations, salt) { }
 
         protected override byte[] ComputeHash()
         {

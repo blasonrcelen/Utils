@@ -11,13 +11,13 @@ namespace Utils.Info
         public static int Minor { get; private set; }
         public static int Patch { get; private set; }
 
-        public static void Set(String _name, String _description = null, int _major = 0, int _minor = 0, int _patch = 0)
+        public static void Set(String name, String description = null, int major = 0, int minor = 0, int patch = 0)
         {
-            Name = _name;
-            Description = _description;
-            Major = _major;
-            Minor = _minor;
-            Patch = _patch;
+            Name = name;
+            Description = description;
+            Major = major;
+            Minor = minor;
+            Patch = patch;
         }
 
         public static String GetFullName()
