@@ -4,14 +4,14 @@ namespace Utils.Info
 {
     public class AppInfo
     {
-        public static String Name { get; private set; }
-        public static String Description { get; private set; }
+        public String Name { get; private set; }
+        public String Description { get; private set; }
 
-        public static int Major { get; private set; }
-        public static int Minor { get; private set; }
-        public static int Patch { get; private set; }
+        public int Major { get; private set; }
+        public int Minor { get; private set; }
+        public int Patch { get; private set; }
 
-        public static void Set(String name, String description = null, int major = 0, int minor = 0, int patch = 0)
+        public AppInfo(String name, String description = null, int major = 0, int minor = 0, int patch = 0)
         {
             Name = name;
             Description = description;
@@ -20,7 +20,7 @@ namespace Utils.Info
             Patch = patch;
         }
 
-        public static String GetFullName()
+        public String GetFullName()
         {
             return Name + " v" + Major + "." + Minor + "." + Patch;
         }

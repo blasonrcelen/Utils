@@ -23,11 +23,11 @@ namespace Utils.Info
 
         public void WriteErrors(List<String> errors, bool showDateTime = false)
         {
-            List<String> errors = new List<string>();
-            errors.Add("====== ERRORS ======");
-            errors.AddRange(errors);
-            errors.Add("====================");
-            WriteLines(errors, showDateTime);
+            List<String> newErrors = new List<string>();
+            newErrors.Add("====== ERRORS ======");
+            newErrors.AddRange(errors);
+            newErrors.Add("====================");
+            WriteLines(newErrors, showDateTime);
         }
 
         public void WriteWarning(String warning, bool showDateTime = false)
@@ -37,10 +37,10 @@ namespace Utils.Info
 
         public void WriteWarnings(List<String> warnings, bool showDateTime = false)
         {
-            List<String> warnings = new List<string>();
-            warnings.Add("====== Warnings ======");
-            warnings.AddRange(warnings);
-            warnings.Add("====================");
+            List<String> newWarnings = new List<string>();
+            newWarnings.Add("====== Warnings ======");
+            newWarnings.AddRange(warnings);
+            newWarnings.Add("====================");
             WriteLines(warnings, showDateTime);
         }
 
