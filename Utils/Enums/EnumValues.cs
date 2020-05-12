@@ -7,9 +7,15 @@ namespace Utils.Enums
     {
         public readonly object Value;
 
-        public EnumValue(object _value)
+        public EnumValue(object value)
         {
-            Value = _value;
+            Value = value;
+        }
+
+        public static char GetChar(Enum _enum)
+        {
+            EnumValue enumValue = _enum.GetType().GetField(_enum.ToString()).GetCustomAttribute<EnumValue>(false) as EnumValue;
+            return enumValue != null ? (char)enumValue.Value : '\0';
         }
 
         public static String GetString(Enum _enum)
@@ -53,10 +59,26 @@ namespace Utils.Enums
             EnumValue enumValue = _enum.GetType().GetField(_enum.ToString()).GetCustomAttribute<EnumValue>(false) as EnumValue;
             return enumValue != null ? Convert.ToBoolean(enumValue) : false;
         }
+
+        public static object GetObject(Enum _enum)
+        {
+            EnumValue enumValue = _enum.GetType().GetField(_enum.ToString()).GetCustomAttribute<EnumValue>(false) as EnumValue;
+            return enumValue.Value;
+        }
+
+        public static T GetObject<T>(Enum _enum)
+        {
+            return (T)GetObject(_enum);
+        }
     }
 
     public static class EnumMethods
     {
+        public static char GetChar(this Enum _enum)
+        {
+            return EnumValue.GetChar(_enum);
+        }
+
         public static String GetString(this Enum _enum)
         {
             return EnumValue.GetString(_enum);
@@ -90,6 +112,16 @@ namespace Utils.Enums
         public static bool GetBoolean(this Enum _enum)
         {
             return EnumValue.GetBoolean(_enum);
+        }
+
+        public static object GetObject(this Enum _enum)
+        {
+            return EnumValue.GetObject(_enum);
+        }
+
+        public static T GetObject<T>(this Enum _enum)
+        {
+            return EnumValue.GetObject<T>(_enum);
         }
     }
 }
