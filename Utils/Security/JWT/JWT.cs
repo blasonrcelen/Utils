@@ -2,7 +2,6 @@
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Text;
 
 namespace Utils.Security.JWT
 {
@@ -19,8 +18,8 @@ namespace Utils.Security.JWT
 
         public String GetToken(String identifier, String role, DateTime expires)
         {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var tokenDescriptor = new SecurityTokenDescriptor
+            JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
+            SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
