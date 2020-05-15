@@ -10,16 +10,14 @@ namespace Utils.Security.JWT
     {
         public byte[] Key { get; set; }
         public String Algorithm { get; set; }
-        public DateTime Expires { get; set; }
 
-        public JWT(byte[] key, String algorithm, DateTime expires)
+        public JWT(byte[] key, String algorithm)
         {
             Key = key;
             Algorithm = algorithm;
-            Expires = expires;
         }
 
-        public String GetToken(String identifier, String role)
+        public String GetToken(String identifier, String role, DateTime expires)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenDescriptor = new SecurityTokenDescriptor
@@ -29,7 +27,7 @@ namespace Utils.Security.JWT
                     new Claim(ClaimTypes.NameIdentifier, identifier),
                     new Claim(ClaimTypes.Role, role)
                 }),
-                Expires = this.Expires,
+                Expires = expires,
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Key), Algorithm)
             };
             return tokenHandler.WriteToken(tokenHandler.CreateToken(tokenDescriptor));
