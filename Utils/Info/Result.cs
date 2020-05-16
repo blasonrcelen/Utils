@@ -27,13 +27,13 @@ namespace Utils.Info
         }
 
         // ERRORS
-        public Result AddError(String error)
+        public Result AddError(string error)
         {
             Errors.Add(error);
             return this;
         }
 
-        public Result AddErrors(List<String> errors)
+        public Result AddErrors(List<string> errors)
         {
             Errors.AddRange(errors);
             return this;
@@ -45,13 +45,13 @@ namespace Utils.Info
         }
 
         // WARNINGS
-        public Result AddWarning(String warning)
+        public Result AddWarning(string warning)
         {
             Warnings.Add(warning);
             return this;
         }
 
-        public Result AddWarnings(List<String> warnings)
+        public Result AddWarnings(List<string> warnings)
         {
             Warnings.AddRange(warnings);
             return this;
@@ -63,13 +63,13 @@ namespace Utils.Info
         }
 
         // ERRORS
-        public Result AddSuccess(String success)
+        public Result AddSuccess(string success)
         {
             Successes.Add(success);
             return this;
         }
 
-        public Result AddSuccesses(List<String> successes)
+        public Result AddSuccesses(List<string> successes)
         {
             Successes.AddRange(successes);
             return this;
@@ -102,34 +102,34 @@ namespace Utils.Info
         }
 
         // ERRORS
-        public new Result<T> AddError(String error)
+        public new Result<T> AddError(string error)
         {
             return (Result<T>)base.AddError(error);
         }
 
-        public new Result<T> AddErrors(List<String> errors)
+        public new Result<T> AddErrors(List<string> errors)
         {
             return (Result<T>)base.AddErrors(errors);
         }
 
         // WARNINGS
-        public new Result<T> AddWarning(String warning)
+        public new Result<T> AddWarning(string warning)
         {
             return (Result<T>)base.AddWarning(warning);
         }
 
-        public new Result<T> AddWarnings(List<String> warnings)
+        public new Result<T> AddWarnings(List<string> warnings)
         {
             return (Result<T>)base.AddWarnings(warnings);
         }
 
         // SUCCESSES
-        public new Result<T> AddSuccess(String success)
+        public new Result<T> AddSuccess(string success)
         {
             return (Result<T>)base.AddSuccess(success);
         }
 
-        public new Result<T> AddSuccesses(List<String> successes)
+        public new Result<T> AddSuccesses(List<string> successes)
         {
             return (Result<T>)base.AddSuccesses(successes);
         }

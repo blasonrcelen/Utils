@@ -6,11 +6,11 @@ namespace Utils.Security.Generators
 {
     public class Generator
     {
-        public static String GetRandomText(int length, String allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-?!#=<>&$@%")
+        public static string GetRandomText(int length, string allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-?!#=<>&$@%")
         {
             if (length < 0) throw new ArgumentOutOfRangeException("length", "length cannot be less than zero.");
 
-            if (String.IsNullOrWhiteSpace(allowedChars)) throw new ArgumentException("allowedChars may not be empty.");
+            if (string.IsNullOrWhiteSpace(allowedChars)) throw new ArgumentException("allowedChars may not be empty.");
 
             if (allowedChars.Length > 256) throw new ArgumentException("allowedChars may contain no more than 256 characters.");
 
@@ -37,7 +37,7 @@ namespace Utils.Security.Generators
             return randomData;
         }
 
-        public static byte[] GetDerivationKey(String key, int length, int iterations = 100)
+        public static byte[] GetDerivationKey(string key, int length, int iterations = 100)
         {
             Rfc2898DeriveBytes rfc2898 = new Rfc2898DeriveBytes(key, GetRandomBytes(500));
             return rfc2898.GetBytes(length);

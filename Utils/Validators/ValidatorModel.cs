@@ -11,7 +11,7 @@ namespace Utils.Validators
     public abstract class ValidatorModel : Attribute, IValidator
     {
         public readonly bool IgnoreEmpty;
-        public readonly String Error;
+        public readonly string Error;
 
         public ValidatorModel() { }
 
@@ -20,12 +20,12 @@ namespace Utils.Validators
             IgnoreEmpty = ignoreEmpty;
         }
 
-        public ValidatorModel(String error)
+        public ValidatorModel(string error)
         {
             Error = error;
         }
 
-        public ValidatorModel(bool ignoreEmpty, String error)
+        public ValidatorModel(bool ignoreEmpty, string error)
         {
             IgnoreEmpty = ignoreEmpty;
             Error = error;

@@ -18,10 +18,10 @@ namespace Utils.Enums
             return enumValue != null ? (char)enumValue.Value : '\0';
         }
 
-        public static String GetString(Enum _enum)
+        public static string GetString(Enum _enum)
         {
             EnumValue enumValue = _enum.GetType().GetField(_enum.ToString()).GetCustomAttribute<EnumValue>(false) as EnumValue;
-            return enumValue != null ? (String)enumValue.Value : null;
+            return enumValue != null ? (string)enumValue.Value : null;
         }
 
         public static byte GetByte(Enum _enum)
@@ -79,7 +79,7 @@ namespace Utils.Enums
             return EnumValue.GetChar(_enum);
         }
 
-        public static String GetString(this Enum _enum)
+        public static string GetString(this Enum _enum)
         {
             return EnumValue.GetString(_enum);
         }

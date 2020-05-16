@@ -7,44 +7,44 @@ namespace Utils.Info
 {
     public class LogFile
     {
-        public readonly String FilePath;
+        public readonly string FilePath;
 
-        public LogFile(String filePath, String initMessage = null, bool showDateTime = false)
+        public LogFile(string filePath, string initMessage = null, bool showDateTime = false)
         {
             FilePath = filePath;
             if (!File.Exists(FilePath)) new FileStream(FilePath, FileMode.Create).Close();
             if (initMessage != null) WriteLine(initMessage, showDateTime);
         }
 
-        public void WriteError(String error, bool showDateTime = false)
+        public void WriteError(string error, bool showDateTime = false)
         {
             WriteLine($"[Error]: {error}", showDateTime);
         }
 
-        public void WriteErrors(List<String> errors, bool showDateTime = false)
+        public void WriteErrors(List<string> errors, bool showDateTime = false)
         {
-            List<String> newErrors = new List<string>();
+            List<string> newErrors = new List<string>();
             newErrors.Add("====== ERRORS ======");
             newErrors.AddRange(errors);
             newErrors.Add("====================");
             WriteLines(newErrors, showDateTime);
         }
 
-        public void WriteWarning(String warning, bool showDateTime = false)
+        public void WriteWarning(string warning, bool showDateTime = false)
         {
             WriteLine($"[Warning]: {warning}", showDateTime);
         }
 
-        public void WriteWarnings(List<String> warnings, bool showDateTime = false)
+        public void WriteWarnings(List<string> warnings, bool showDateTime = false)
         {
-            List<String> newWarnings = new List<string>();
+            List<string> newWarnings = new List<string>();
             newWarnings.Add("====== Warnings ======");
             newWarnings.AddRange(warnings);
             newWarnings.Add("====================");
             WriteLines(warnings, showDateTime);
         }
 
-        public void WriteLine(String line, bool showDateTime = false)
+        public void WriteLine(string line, bool showDateTime = false)
         {
             if (line == null) return;
 
@@ -55,7 +55,7 @@ namespace Utils.Info
             file.Close();
         }
 
-        public void WriteLines(List<String> lines, bool showDateTime = false)
+        public void WriteLines(List<string> lines, bool showDateTime = false)
         {
             if (lines == null) return;
 
@@ -67,7 +67,7 @@ namespace Utils.Info
                 file.Write(dateTime, 0, dateTime.Length);
             }
 
-            foreach (String line in lines)
+            foreach (string line in lines)
             {
                 if (line == null) continue;
 

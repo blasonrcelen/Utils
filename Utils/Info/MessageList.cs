@@ -3,15 +3,15 @@ using System.Collections.Generic;
 
 namespace Utils.Info
 {
-    public class MessageList : List<String>
+    public class MessageList : List<string>
     {
         public MessageList() { }
-        public MessageList(params String[] messages)
+        public MessageList(params string[] messages)
         {
             AddRange(messages);
         }
 
-        public MessageList(List<String> messages)
+        public MessageList(List<string> messages)
         {
             AddRange(messages);
         }
@@ -23,8 +23,8 @@ namespace Utils.Info
 
         public override string ToString()
         {
-            String strMessage = "";
-            foreach (String message in this) strMessage += message + "\n";
+            string strMessage = "";
+            foreach (string message in this) strMessage += message + "\n";
             return strMessage;
         }
     }

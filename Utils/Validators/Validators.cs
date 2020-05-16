@@ -10,18 +10,18 @@ namespace Utils.Validators
     public class IsEmpty : ValidatorModel
     {
         public IsEmpty() { }
-        public IsEmpty(String error) : base(error) { }
+        public IsEmpty(string error) : base(error) { }
 
         public override bool IsValid(object value)
         {
-            return value == null ? true : (value.GetType() == typeof(String) && String.IsNullOrWhiteSpace((String)value));
+            return value == null ? true : (value.GetType() == typeof(string) && string.IsNullOrWhiteSpace((string)value));
         }
     }
 
     public class IsRequired : ValidatorModel
     {
         public IsRequired() { }
-        public IsRequired(String error) : base(error) { }
+        public IsRequired(string error) : base(error) { }
 
         public override bool IsValid(object value)
         {
@@ -32,14 +32,14 @@ namespace Utils.Validators
     public class IsInteger : ValidatorModel
     {
         public IsInteger(bool ignoreEmpty) : base(ignoreEmpty) { }
-        public IsInteger(bool ignoreEmpty, String error) : base(ignoreEmpty, error) { }
+        public IsInteger(bool ignoreEmpty, string error) : base(ignoreEmpty, error) { }
 
         public override bool IsValid(object value)
         {
             return IsValid(Convert.ToString(value));
         }
 
-        public bool IsValid(String value)
+        public bool IsValid(string value)
         {
             if (new IsEmpty().IsValid(value)) return IgnoreEmpty;
 
@@ -56,15 +56,15 @@ namespace Utils.Validators
         public readonly char DecimalDelimiter = ',';
         public IsNumber(bool ignoreEmpty) : base(ignoreEmpty) { }
         public IsNumber(char decimalDelimiter, bool ignoreEmpty) : base(ignoreEmpty) { DecimalDelimiter = decimalDelimiter; }
-        public IsNumber(bool ignoreEmpty, String error) : base(ignoreEmpty, error) { }
-        public IsNumber(char decimalDelimiter, bool ignoreEmpty, String error) : base(ignoreEmpty, error) { DecimalDelimiter = decimalDelimiter; }
+        public IsNumber(bool ignoreEmpty, string error) : base(ignoreEmpty, error) { }
+        public IsNumber(char decimalDelimiter, bool ignoreEmpty, string error) : base(ignoreEmpty, error) { DecimalDelimiter = decimalDelimiter; }
 
         public override bool IsValid(object value)
         {
             return IsValid(Convert.ToString(value));
         }
 
-        public bool IsValid(String value)
+        public bool IsValid(string value)
         {
             if (new IsEmpty().IsValid(value)) return IgnoreEmpty;
 
@@ -78,17 +78,17 @@ namespace Utils.Validators
 
     public class IsDate : ValidatorModel
     {
-        public readonly String DatePattern;
+        public readonly string DatePattern;
 
         public IsDate(bool ignoreEmpty) : base(ignoreEmpty) { }
-        public IsDate(bool ignoreEmpty, String error) : base(ignoreEmpty, error) { }
+        public IsDate(bool ignoreEmpty, string error) : base(ignoreEmpty, error) { }
 
-        public IsDate(String datePattern, bool ignoreEmpty) : base(ignoreEmpty)
+        public IsDate(string datePattern, bool ignoreEmpty) : base(ignoreEmpty)
         {
             DatePattern = datePattern;
         }
 
-        public IsDate(String datePattern, bool ignoreEmpty, String error) : base(ignoreEmpty, error)
+        public IsDate(string datePattern, bool ignoreEmpty, string error) : base(ignoreEmpty, error)
         {
             DatePattern = datePattern;
         }
@@ -97,11 +97,11 @@ namespace Utils.Validators
         public override bool IsValid(object value)
         {
             return new IsEmpty().IsValid(value) ? IgnoreEmpty :
-                typeof(String).Equals(value.GetType()) ? IsValid((String)value) :
+                typeof(string).Equals(value.GetType()) ? IsValid((string)value) :
                 throw new ArgumentException("the value argument must be of type string");
         }
 
-        public bool IsValid(String value)
+        public bool IsValid(string value)
         {
             return new IsEmpty().IsValid(value) ? IgnoreEmpty :
                 DatePattern == null ? !DateTime.TryParse(value, out _) :
@@ -111,14 +111,14 @@ namespace Utils.Validators
 
     public class IsPattern : ValidatorModel
     {
-        public readonly String Pattern;
+        public readonly string Pattern;
 
-        public IsPattern(String pattern, bool ignoreEmpty) : base(ignoreEmpty)
+        public IsPattern(string pattern, bool ignoreEmpty) : base(ignoreEmpty)
         {
             Pattern = pattern;
         }
 
-        public IsPattern(String pattern, bool ignoreEmpty, String error) : base(ignoreEmpty, error)
+        public IsPattern(string pattern, bool ignoreEmpty, string error) : base(ignoreEmpty, error)
         {
             Pattern = pattern;
         }
@@ -126,11 +126,11 @@ namespace Utils.Validators
         public override bool IsValid(object value)
         {
             return new IsEmpty().IsValid(value) ? IgnoreEmpty :
-                typeof(String).Equals(value.GetType()) ? IsValid((String)value) :
+                typeof(string).Equals(value.GetType()) ? IsValid((string)value) :
                 throw new ArgumentException("the value argument must be of type string");
         }
 
-        public bool IsValid(String value)
+        public bool IsValid(string value)
         {
             return new IsEmpty().IsValid(value) ? IgnoreEmpty : Regex.IsMatch(value, Pattern);
         }
@@ -145,7 +145,7 @@ namespace Utils.Validators
             Max = maxLength;
         }
 
-        public MaxLength(int maxLength, bool ignoreEmpty, String error) : base(ignoreEmpty, error)
+        public MaxLength(int maxLength, bool ignoreEmpty, string error) : base(ignoreEmpty, error)
         {
             Max = maxLength;
         }
@@ -153,12 +153,12 @@ namespace Utils.Validators
         public override bool IsValid(object value)
         {
             return new IsEmpty().IsValid(value) ? IgnoreEmpty :
-                typeof(String).Equals(value.GetType()) ? IsValid((String)value) :
+                typeof(string).Equals(value.GetType()) ? IsValid((string)value) :
                 typeof(ICollection).IsAssignableFrom(value.GetType()) ? IsValid((ICollection)value) :
                 throw new ArgumentException("the value argument must be of type string or implements ICollection interface");
         }
 
-        public bool IsValid(String value)
+        public bool IsValid(string value)
         {
             return new IsEmpty().IsValid(value) ? IgnoreEmpty : value.Length <= Max;
         }
@@ -178,7 +178,7 @@ namespace Utils.Validators
             Min = minLength;
         }
 
-        public MinLength(int minLength, bool ignoreEmpty, String error) : base(ignoreEmpty, error)
+        public MinLength(int minLength, bool ignoreEmpty, string error) : base(ignoreEmpty, error)
         {
             Min = minLength;
         }
@@ -186,12 +186,12 @@ namespace Utils.Validators
         public override bool IsValid(object value)
         {
             return new IsEmpty().IsValid(value) ? IgnoreEmpty :
-                typeof(String).Equals(value.GetType()) ? IsValid((String)value) :
+                typeof(string).Equals(value.GetType()) ? IsValid((string)value) :
                 typeof(ICollection).IsAssignableFrom(value.GetType()) ? IsValid((ICollection)value) :
                 throw new ArgumentException("the value argument must be of type string or implements ICollection interface");
         }
 
-        public bool IsValid(String value)
+        public bool IsValid(string value)
         {
             return new IsEmpty().IsValid(value) ? IgnoreEmpty : value.Length >= Min;
         }
@@ -211,7 +211,7 @@ namespace Utils.Validators
             Max = maxValue;
         }
 
-        public MaxValue(int maxValue, bool ignoreEmpty, String error) : base(ignoreEmpty, error)
+        public MaxValue(int maxValue, bool ignoreEmpty, string error) : base(ignoreEmpty, error)
         {
             Max = maxValue;
         }
@@ -238,7 +238,7 @@ namespace Utils.Validators
             Min = minValue;
         }
 
-        public MinValue(int minValue, bool ignoreEmpty, String error) : base(ignoreEmpty, error)
+        public MinValue(int minValue, bool ignoreEmpty, string error) : base(ignoreEmpty, error)
         {
             Min = minValue;
         }
@@ -265,7 +265,7 @@ namespace Utils.Validators
             List = list;
         }
 
-        public InList(IList list, bool ignoreEmpty, String error) : base(ignoreEmpty, error)
+        public InList(IList list, bool ignoreEmpty, string error) : base(ignoreEmpty, error)
         {
             List = list;
         }
@@ -285,7 +285,7 @@ namespace Utils.Validators
             List = list;
         }
 
-        public OutList(IList list, bool ignoreEmpty, String error) : base(ignoreEmpty, error)
+        public OutList(IList list, bool ignoreEmpty, string error) : base(ignoreEmpty, error)
         {
             List = list;
         }
@@ -305,7 +305,7 @@ namespace Utils.Validators
             Validator = validator;
         }
 
-        public ListElement(ValidatorModel validator, bool ignoreEmpty, String error) : base(ignoreEmpty, error)
+        public ListElement(ValidatorModel validator, bool ignoreEmpty, string error) : base(ignoreEmpty, error)
         {
             Validator = validator;
         }
@@ -338,10 +338,10 @@ namespace Utils.Validators
 
     public class ValidateObject : ValidatorModel
     {
-        public List<String> Errors { get; private set; }
+        public List<string> Errors { get; private set; }
 
         public ValidateObject(bool ignoreEmpty) : base(ignoreEmpty) { }
-        public ValidateObject(bool ignoreEmpty, String error) : base(ignoreEmpty, error) { }
+        public ValidateObject(bool ignoreEmpty, string error) : base(ignoreEmpty, error) { }
 
         public override bool IsValid(object value)
         {
@@ -381,10 +381,10 @@ namespace Utils.Validators
             return isValid;
         }
 
-        public String GetErrorsString()
+        public string GetErrorsString()
         {
-            String returnedError = new IsEmpty().IsValid(Error) ? "" : Error + "\n";
-            foreach (String error in Errors)
+            string returnedError = new IsEmpty().IsValid(Error) ? "" : Error + "\n";
+            foreach (string error in Errors)
                 if (new IsRequired().IsValid(error))
                     returnedError += error + "\n";
 
@@ -394,10 +394,10 @@ namespace Utils.Validators
 
     public class ValidateList : ValidatorModel
     {
-        public List<String> Errors { get; private set; }
+        public List<string> Errors { get; private set; }
 
         public ValidateList(bool ignoreEmpty) : base(ignoreEmpty) { }
-        public ValidateList(bool ignoreEmpty, String error) : base(ignoreEmpty, error) { }
+        public ValidateList(bool ignoreEmpty, string error) : base(ignoreEmpty, error) { }
 
         public override bool IsValid(object value)
         {
@@ -429,10 +429,10 @@ namespace Utils.Validators
             return isValid;
         }
 
-        public String GetErrorsString()
+        public string GetErrorsString()
         {
-            String returnedError = new IsEmpty().IsValid(Error) ? "" : Error + "\n";
-            foreach (String error in Errors)
+            string returnedError = new IsEmpty().IsValid(Error) ? "" : Error + "\n";
+            foreach (string error in Errors)
                 if (new IsRequired().IsValid(error))
                     returnedError += error + "\n";
 

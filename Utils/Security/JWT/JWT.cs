@@ -8,15 +8,15 @@ namespace Utils.Security.JWT
     public class JWT
     {
         public byte[] Key { get; set; }
-        public String Algorithm { get; set; }
+        public string Algorithm { get; set; }
 
-        public JWT(byte[] key, String algorithm)
+        public JWT(byte[] key, string algorithm)
         {
             Key = key;
             Algorithm = algorithm;
         }
 
-        public String GetToken(String identifier, String role, DateTime expires)
+        public string GetToken(string identifier, string role, DateTime expires)
         {
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
             SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor
