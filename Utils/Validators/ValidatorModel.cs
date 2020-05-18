@@ -14,17 +14,8 @@ namespace Utils.Validators
         public readonly string Error;
 
         public ValidatorModel() { }
-
-        public ValidatorModel(bool ignoreEmpty)
-        {
-            IgnoreEmpty = ignoreEmpty;
-        }
-
-        public ValidatorModel(string error)
-        {
-            Error = error;
-        }
-
+        public ValidatorModel(bool ignoreEmpty) => IgnoreEmpty = ignoreEmpty;
+        public ValidatorModel(string error) => Error = error;
         public ValidatorModel(bool ignoreEmpty, string error)
         {
             IgnoreEmpty = ignoreEmpty;

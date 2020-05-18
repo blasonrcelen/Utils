@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 
 namespace Utils.ConfigFiles
 {
@@ -16,21 +15,12 @@ namespace Utils.ConfigFiles
         }
 
         public abstract void LoadSaveDefault(string filePath);
-        public void LoadSaveDefault()
-        {
-            LoadSaveDefault(FilePath);
-        }
+        public void LoadSaveDefault() => LoadSaveDefault(FilePath);
 
         public abstract void Load(string filePath);
-        public void Load()
-        {
-            Load(FilePath);
-        }
+        public void Load() => Load(FilePath);
 
         public abstract void Save(string filePath);
-        public void Save()
-        {
-            Save(FilePath);
-        }
+        public void Save() => Save(FilePath);
     }
 }

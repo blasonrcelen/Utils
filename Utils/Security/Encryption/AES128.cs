@@ -12,24 +12,14 @@ namespace Utils.Security.Encryption
 
         public override byte[] Key
         {
-            get { return key; }
-            set
-            {
-                if (value.Length != KEYLENGTH)
-                    throw new Exception($"Key must be {KEYLENGTH} bytes length.");
-                key = value;
-            }
+            get => key;
+            set => key = value.Length != KEYLENGTH ? throw new Exception($"Key must be {KEYLENGTH} bytes length.") : value;
         }
 
         public override byte[] IV
         {
-            get { return iv; }
-            set
-            {
-                if (value.Length != IVLENGTH)
-                    throw new Exception($"IV must be {IVLENGTH} bytes length.");
-                iv = value;
-            }
+            get => iv;
+            set => iv = value.Length != IVLENGTH ? throw new Exception($"IV must be {IVLENGTH} bytes length.") : value;
         }
 
         public AES128(byte[] key = null, byte[] iv = null)

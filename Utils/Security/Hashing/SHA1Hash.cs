@@ -16,7 +16,7 @@ namespace Utils.Security.Hashing
             byte[] stretching = new byte[0];
             for (uint i = Iterations; i > 1; i--)
             {
-                stretching = keyStretching(stretching, hash);
+                stretching = KeyStretching(stretching, hash);
                 hash = SHA1.Create().ComputeHash(stretching);
             }
             return hash;

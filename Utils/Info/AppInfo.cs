@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace Utils.Info
 {
     public class AppInfo
@@ -20,9 +19,6 @@ namespace Utils.Info
             Patch = patch;
         }
 
-        public string GetFullName()
-        {
-            return Name + " v" + Major + "." + Minor + "." + Patch;
-        }
+        public string GetFullName() => Name + " v" + Major + "." + Minor + "." + Patch;
     }
 }

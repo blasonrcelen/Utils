@@ -1,25 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Utils.Info
 {
     public class MessageList : List<string>
     {
         public MessageList() { }
-        public MessageList(params string[] messages)
-        {
-            AddRange(messages);
-        }
+        public MessageList(params string[] messages) => AddRange(messages);
+        public MessageList(List<string> messages) => AddRange(messages);
 
-        public MessageList(List<string> messages)
-        {
-            AddRange(messages);
-        }
-
-        public bool IsEmpty()
-        {
-            return Count == 0;
-        }
+        public bool IsEmpty() => Count == 0;
 
         public override string ToString()
         {

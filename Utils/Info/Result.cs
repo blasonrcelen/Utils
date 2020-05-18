@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Utils.Info
 {
@@ -27,58 +26,37 @@ namespace Utils.Info
         }
 
         // ERRORS
-        public Result AddError(string error)
-        {
-            Errors.Add(error);
-            return this;
-        }
-
-        public Result AddErrors(List<string> errors)
+        public Result AddErrors(params string[] errors)
         {
             Errors.AddRange(errors);
             return this;
         }
 
-        public bool HasErrors()
-        {
-            return !Errors.IsEmpty();
-        }
+        public Result AddErrors(List<string> errors) => AddErrors(errors.ToArray());
+
+        public bool HasErrors() => !Errors.IsEmpty();
 
         // WARNINGS
-        public Result AddWarning(string warning)
-        {
-            Warnings.Add(warning);
-            return this;
-        }
-
-        public Result AddWarnings(List<string> warnings)
+        public Result AddWarnings(params string[] warnings)
         {
             Warnings.AddRange(warnings);
             return this;
         }
 
-        public bool HasWarnings()
-        {
-            return !Warnings.IsEmpty();
-        }
+        public Result AddWarnings(List<string> warnings) => AddWarnings(warnings.ToArray());
+
+        public bool HasWarnings() => !Warnings.IsEmpty();
 
         // ERRORS
-        public Result AddSuccess(string success)
-        {
-            Successes.Add(success);
-            return this;
-        }
-
-        public Result AddSuccesses(List<string> successes)
+        public Result AddSuccesses(params string[] successes)
         {
             Successes.AddRange(successes);
             return this;
         }
 
-        public bool HasSuccesses()
-        {
-            return !Successes.IsEmpty();
-        }
+        public Result AddSuccesses(List<string> successes) => AddSuccesses(successes.ToArray());
+
+        public bool HasSuccesses() => !Successes.IsEmpty();
     }
 
     public class Result<T> : Result
@@ -86,53 +64,21 @@ namespace Utils.Info
         public T ResultObject;
 
         public Result() : base() { }
-        public Result(T resultObject) : base()
-        {
-            ResultObject = resultObject;
-        }
+        public Result(T resultObject) : base() => ResultObject = resultObject;
+        public Result(T resultObject, params Result[] results) : base(results) => ResultObject = resultObject;
 
-        public Result(T resultObject, params Result[] results) : base(results)
-        {
-            ResultObject = resultObject;
-        }
-
-        public new Result<T> Merge(Result result)
-        {
-            return (Result<T>)base.Merge(result);
-        }
+        public new Result<T> Merge(Result result) => (Result<T>)base.Merge(result);
 
         // ERRORS
-        public new Result<T> AddError(string error)
-        {
-            return (Result<T>)base.AddError(error);
-        }
-
-        public new Result<T> AddErrors(List<string> errors)
-        {
-            return (Result<T>)base.AddErrors(errors);
-        }
+        public new Result<T> AddErrors(params string[] errors) => (Result<T>)base.AddErrors(errors);
+        public new Result<T> AddErrors(List<string> errors) => (Result<T>)base.AddErrors(errors);
 
         // WARNINGS
-        public new Result<T> AddWarning(string warning)
-        {
-            return (Result<T>)base.AddWarning(warning);
-        }
-
-        public new Result<T> AddWarnings(List<string> warnings)
-        {
-            return (Result<T>)base.AddWarnings(warnings);
-        }
+        public new Result<T> AddWarnings(params string[] warnings) => (Result<T>)base.AddWarnings(warnings);
+        public new Result<T> AddWarnings(List<string> warnings) => (Result<T>)base.AddWarnings(warnings);
 
         // SUCCESSES
-        public new Result<T> AddSuccess(string success)
-        {
-            return (Result<T>)base.AddSuccess(success);
-        }
-
-        public new Result<T> AddSuccesses(List<string> successes)
-        {
-            return (Result<T>)base.AddSuccesses(successes);
-        }
-
+        public new Result<T> AddSuccesses(params string[] successes) => (Result<T>)base.AddSuccesses(successes);
+        public new Result<T> AddSuccesses(List<string> successes) => (Result<T>)base.AddSuccesses(successes);
     }
 }

@@ -37,10 +37,6 @@ namespace Utils.Security.Generators
             return randomData;
         }
 
-        public static byte[] GetDerivationKey(string key, int length, int iterations = 100)
-        {
-            Rfc2898DeriveBytes rfc2898 = new Rfc2898DeriveBytes(key, GetRandomBytes(500));
-            return rfc2898.GetBytes(length);
-        }
+        public static byte[] GetDerivationKey(string key, int length) => new Rfc2898DeriveBytes(key, GetRandomBytes(500)).GetBytes(length);
     }
 }
