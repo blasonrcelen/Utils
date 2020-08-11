@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Utils.Info
+namespace Utils.Info.Log
 {
     public class LogFile
     {

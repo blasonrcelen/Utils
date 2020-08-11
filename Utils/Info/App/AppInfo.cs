@@ -1,5 +1,5 @@
 ﻿
-namespace Utils.Info
+namespace Utils.Info.App
 {
     public class AppInfo
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Utils.Info
+namespace Utils.Info.MessageResult
 {
     public class MessageList : List<string>
     {
