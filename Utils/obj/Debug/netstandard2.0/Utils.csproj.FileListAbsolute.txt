@@ -3,7 +3,6 @@ C:\Users\filip\source\repos\Utils\Utils\bin\Debug\netstandard2.0\Utils.dll
 C:\Users\filip\source\repos\Utils\Utils\bin\Debug\netstandard2.0\Utils.pdb
 C:\Users\filip\source\repos\Utils\Utils\obj\Debug\netstandard2.0\Utils.AssemblyInfoInputs.cache
 C:\Users\filip\source\repos\Utils\Utils\obj\Debug\netstandard2.0\Utils.AssemblyInfo.cs
+C:\Users\filip\source\repos\Utils\Utils\obj\Debug\netstandard2.0\Utils.csproj.CoreCompileInputs.cache
 C:\Users\filip\source\repos\Utils\Utils\obj\Debug\netstandard2.0\Utils.dll
 C:\Users\filip\source\repos\Utils\Utils\obj\Debug\netstandard2.0\Utils.pdb
-C:\Users\filip\source\repos\Utils\Utils\obj\Debug\netstandard2.0\Utils.csprojAssemblyReference.cache
-C:\Users\filip\source\repos\Utils\Utils\obj\Debug\netstandard2.0\Utils.csproj.CoreCompileInputs.cache

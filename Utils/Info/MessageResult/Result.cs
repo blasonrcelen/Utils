@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 
-namespace Utils.Info.MessageResult
+namespace Utils.Info
 {
     public class Result
     {
-        public MessageList Successes { get; set; } = new MessageList();
-        public MessageList Warnings { get; set; } = new MessageList();
-        public MessageList Errors { get; set; } = new MessageList();
+        public MessageList Successes { get; set; } = new MessageList("Successes");
+        public MessageList Warnings { get; set; } = new MessageList("Warnings");
+        public MessageList Errors { get; set; } = new MessageList("Errors");
 
         public Result() { }
         public Result(params Result[] results)
@@ -57,6 +58,17 @@ namespace Utils.Info.MessageResult
         public Result AddSuccesses(List<string> successes) => AddSuccesses(successes.ToArray());
 
         public bool HasSuccesses() => !Successes.IsEmpty();
+
+        public override string ToString()
+        {
+            StringBuilder builder = new StringBuilder();
+
+            if (HasErrors()) builder.AppendLine(Errors.ToString());
+            if (HasWarnings()) builder.AppendLine(Warnings.ToString());
+            if (HasSuccesses()) builder.AppendLine(Successes.ToString());
+
+            return builder.ToString();
+        }
     }
 
     public class Result<T> : Result

@@ -1,15 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "DRT6+RgF0CMM3b5mlXm6HLid4rtfsnH4PcTkbZt7+MU/hIDg0WKSpOznvVcc2GFLsZeZsQtnK6aDgcroXrWdtg==",
+  "dgSpecHash": "TNDgoqxywQoxUSvVyYXPNWWz+NO4djf8xzw81JJxqElOW4jaXSCTDY9Xje/JRJa1aKoYfrriRlccl86xrrUjwQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\filip\\source\\repos\\Utils\\Utils\\Utils.csproj",
+  "projectFilePath": "C:\\Users\\filip\\source\\repos\\Utils\\TestUtils\\TestUtils.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\filip\\.nuget\\packages\\log4net\\2.0.9\\log4net.2.0.9.nupkg.sha512",
     "C:\\Users\\filip\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\filip\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\filip\\.nuget\\packages\\microsoft.win32.primitives\\4.0.1\\microsoft.win32.primitives.4.0.1.nupkg.sha512",
     "C:\\Users\\filip\\.nuget\\packages\\microsoft.win32.registry\\4.0.0\\microsoft.win32.registry.4.0.0.nupkg.sha512",
-    "C:\\Users\\filip\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\filip\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\filip\\.nuget\\packages\\runtime.native.system.net.http\\4.0.1\\runtime.native.system.net.http.4.0.1.nupkg.sha512",
     "C:\\Users\\filip\\.nuget\\packages\\runtime.native.system.security.cryptography\\4.0.0\\runtime.native.system.security.cryptography.4.0.0.nupkg.sha512",
@@ -74,7 +73,8 @@
     "C:\\Users\\filip\\.nuget\\packages\\system.threading.threadpool\\4.0.10\\system.threading.threadpool.4.0.10.nupkg.sha512",
     "C:\\Users\\filip\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\filip\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\filip\\.nuget\\packages\\system.xml.xmldocument\\4.0.1\\system.xml.xmldocument.4.0.1.nupkg.sha512"
+    "C:\\Users\\filip\\.nuget\\packages\\system.xml.xmldocument\\4.0.1\\system.xml.xmldocument.4.0.1.nupkg.sha512",
+    "C:\\Users\\filip\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
   ],
   "logs": []
 }

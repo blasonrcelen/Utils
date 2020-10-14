@@ -1,10 +1,29 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 
-namespace Utils.Info.MessageResult
+namespace Utils.Info
 {
     public class MessageList : List<string>
     {
-        public MessageList() { }
+        public string Header { get; set; }
+
+        public MessageList(string header = null)
+        {
+            this.Header = header;
+        }
+
+        public MessageList(string header, params string[] messages)
+        {
+            this.Header = header;
+            AddRange(messages);
+        }
+
+        public MessageList(string header, List<string> messages)
+        {
+            this.Header = header;
+            AddRange(messages);
+        }
+
         public MessageList(params string[] messages) => AddRange(messages);
         public MessageList(List<string> messages) => AddRange(messages);
 
@@ -12,9 +31,17 @@ namespace Utils.Info.MessageResult
 
         public override string ToString()
         {
-            string strMessage = "";
-            foreach (string message in this) strMessage += message + "\n";
-            return strMessage;
+            StringBuilder builder = new StringBuilder();
+
+            if (Header != null)
+            {
+                builder.AppendLine(Header);
+                builder.Append('=', Header.Length);
+                builder.AppendLine();
+            }
+
+            foreach (string message in this) builder.AppendLine(message);
+            return builder.ToString();
         }
     }
 }

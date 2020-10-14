@@ -48,9 +48,9 @@
               "version": "[2.0.3, )",
               "autoReferenced": true
             },
-            "System.IdentityModel.Tokens.Jwt": {
+            "log4net": {
               "target": "Package",
-              "version": "[6.5.1, )"
+              "version": "[2.0.9, )"
             }
           },
           "imports": [
