@@ -16,3 +16,8 @@ C:\Users\filip\source\repos\Utils\TestUtils\obj\Debug\netcoreapp3.1\TestUtils.cs
 C:\Users\filip\source\repos\Utils\TestUtils\obj\Debug\netcoreapp3.1\TestUtils.dll
 C:\Users\filip\source\repos\Utils\TestUtils\obj\Debug\netcoreapp3.1\TestUtils.pdb
 C:\Users\filip\source\repos\Utils\TestUtils\obj\Debug\netcoreapp3.1\TestUtils.genruntimeconfig.cache
+C:\Users\filip\source\repos\Utils\TestUtils\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\filip\source\repos\Utils\TestUtils\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\filip\source\repos\Utils\TestUtils\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\filip\source\repos\Utils\TestUtils\bin\Debug\netcoreapp3.1\System.Security.Permissions.dll
+C:\Users\filip\source\repos\Utils\TestUtils\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll

@@ -1,4 +1,6 @@
-﻿namespace Utils.Info
+﻿using Newtonsoft.Json;
+
+namespace Utils.Info
 {
     public enum MESSAGE_TYPE
     {
@@ -29,17 +31,10 @@
         public string Header { get; set; }
         public string Msg { get; set; }
 
-        public Message(MESSAGE_TYPE type, string header, string msg)
+        public Message(MESSAGE_TYPE type, string header = null, string msg = null)
         {
             Type = type;
-            Header = header;
-            Msg = msg;
-        }
-
-        public Message(MESSAGE_TYPE type, string msg)
-        {
-            Type = type;
-            Header = type.GetHeader();
+            Header = string.IsNullOrWhiteSpace(header) ? type.GetHeader() : header;
             Msg = msg;
         }
     }

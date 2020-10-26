@@ -57,7 +57,7 @@ namespace Utils.Security.Encryption
             aes.Key = Key;
             aes.IV = IV;
 
-            byte[] decryptedData;
+            byte[] encryptedData;
             using (MemoryStream ms = new MemoryStream())
             {
                 using (CryptoStream cs = new CryptoStream(ms, aes.CreateEncryptor(), CryptoStreamMode.Write))
@@ -65,10 +65,10 @@ namespace Utils.Security.Encryption
                     cs.Write(data, 0, data.Length);
                     cs.Close();
                 }
-                decryptedData = ms.ToArray();
+                encryptedData = ms.ToArray();
             }
             aes.Clear();
-            return decryptedData;
+            return encryptedData;
         }
     }
 }
