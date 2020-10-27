@@ -31,10 +31,18 @@ namespace Utils.Info
         public string Header { get; set; }
         public string Msg { get; set; }
 
-        public Message(MESSAGE_TYPE type, string header = null, string msg = null)
+        [JsonConstructor]
+        public Message(MESSAGE_TYPE type, string header, string msg)
         {
             Type = type;
-            Header = string.IsNullOrWhiteSpace(header) ? type.GetHeader() : header;
+            Header = header;
+            Msg = msg;
+        }
+
+        public Message(MESSAGE_TYPE type, string msg)
+        {
+            Type = type;
+            Header = type.GetHeader();
             Msg = msg;
         }
     }
