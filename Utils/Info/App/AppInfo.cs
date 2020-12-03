@@ -1,24 +1,49 @@
-﻿
+﻿using System;
+
 namespace Utils.Info.App
 {
+    public class Version
+    {
+        public uint Major;
+        public uint Minor;
+        public uint Build;
+        public uint Revision;
+
+        public Version(uint major = 0, uint minor = 0, uint build = 0, uint revision = 0)
+        {
+            Major = major;
+            Minor = minor;
+            Build = build;
+            Revision = revision;
+        }
+
+        public override string ToString()
+        {
+            return String.Format("v{0}.{1}.{2}.{3}", Major, Minor, Build, Revision);
+        }
+    }
+
     public class AppInfo
     {
-        public string Name { get; private set; }
-        public string Description { get; private set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
 
-        public int Major { get; private set; }
-        public int Minor { get; private set; }
-        public int Patch { get; private set; }
+        public Version Version { get; set; }
 
-        public AppInfo(string name, string description = null, int major = 0, int minor = 0, int patch = 0)
+        public AppInfo(string name, string description = null, Version version = null)
         {
             Name = name;
             Description = description;
-            Major = major;
-            Minor = minor;
-            Patch = patch;
+            Version = version == null ? new Version() : version;
         }
 
-        public string GetFullName() => Name + " v" + Major + "." + Minor + "." + Patch;
+        public AppInfo(string name, string description = null, uint major = 0, uint minor = 0, uint build = 0, uint revision = 0)
+        {
+            Name = name;
+            Description = description;
+            Version = new Version(major, minor, build, revision);
+        }
+
+        public override string ToString() => String.Format("{0} {1}", Name, Version);
     }
 }
