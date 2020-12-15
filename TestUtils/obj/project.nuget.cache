@@ -1,17 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "O7BGNItQoli4s0lXmfYwUA/japQkCZFZLAHMdo2INZZwRI73W5+ymQ1RVC12zb+YVUlw++9MiWp8p6NEGWT7xQ==",
+  "dgSpecHash": "ILJ/ZOCpmWS9GTLSyd21AAKd5D7NkcBCMZdjvbPYAYkP7DCrqdc0JuVm5Aah+6TzMK8ll3hO8Y7/yUEe8DgV7A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Filipe\\source\\repos\\blasonrcelen\\Utils\\TestUtils\\TestUtils.csproj",
+  "projectFilePath": "C:\\Users\\filip\\source\\repos\\Utils\\TestUtils\\TestUtils.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Filipe\\.nuget\\packages\\log4net\\2.0.11\\log4net.2.0.11.nupkg.sha512",
-    "C:\\Users\\Filipe\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
-    "C:\\Users\\Filipe\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
-    "C:\\Users\\Filipe\\.nuget\\packages\\system.configuration.configurationmanager\\4.5.0\\system.configuration.configurationmanager.4.5.0.nupkg.sha512",
-    "C:\\Users\\Filipe\\.nuget\\packages\\system.security.accesscontrol\\4.5.0\\system.security.accesscontrol.4.5.0.nupkg.sha512",
-    "C:\\Users\\Filipe\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.5.0\\system.security.cryptography.protecteddata.4.5.0.nupkg.sha512",
-    "C:\\Users\\Filipe\\.nuget\\packages\\system.security.permissions\\4.5.0\\system.security.permissions.4.5.0.nupkg.sha512",
-    "C:\\Users\\Filipe\\.nuget\\packages\\system.security.principal.windows\\4.5.0\\system.security.principal.windows.4.5.0.nupkg.sha512"
+    "C:\\Users\\filip\\.nuget\\packages\\log4net\\2.0.11\\log4net.2.0.11.nupkg.sha512",
+    "C:\\Users\\filip\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "C:\\Users\\filip\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\filip\\.nuget\\packages\\system.configuration.configurationmanager\\4.5.0\\system.configuration.configurationmanager.4.5.0.nupkg.sha512",
+    "C:\\Users\\filip\\.nuget\\packages\\system.security.accesscontrol\\4.5.0\\system.security.accesscontrol.4.5.0.nupkg.sha512",
+    "C:\\Users\\filip\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.5.0\\system.security.cryptography.protecteddata.4.5.0.nupkg.sha512",
+    "C:\\Users\\filip\\.nuget\\packages\\system.security.permissions\\4.5.0\\system.security.permissions.4.5.0.nupkg.sha512",
+    "C:\\Users\\filip\\.nuget\\packages\\system.security.principal.windows\\4.5.0\\system.security.principal.windows.4.5.0.nupkg.sha512",
+    "C:\\Users\\filip\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
   ],
   "logs": []
 }
